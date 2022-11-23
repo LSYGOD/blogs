@@ -108,7 +108,7 @@ copyright = "BookeenGao"            # default: author.name ↓        # 默认�
     owner = "lsygod"              # Your GitHub ID
     repo = "comments"               # The repo to store comments
     clientId = "9b2d4830539fdd0cfca9"           # Your client ID
-    clientSecret = "8887a4be9e053eb738276dfd156ab160fbd0432d"       # Your client secret
+    clientSecret = ""       # Your client secret
 
 
   [params.reward]                                         # 文章打赏
@@ -117,5 +117,5 @@ copyright = "BookeenGao"            # default: author.name ↓        # 默认�
     alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "mailto:keysaim@gmail.com"
-    g-github = "https://github.com/keysaim"
+    a-email = ""
+    g-github = "https://github.com/lsygod"

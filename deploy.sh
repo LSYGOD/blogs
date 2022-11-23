@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-git add public
+git add .
 git commit -m "$msg"
 if [ $? -ne 0 ]; then
     echo "Commit failed"
