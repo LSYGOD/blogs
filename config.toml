@@ -1,120 +1,125 @@
-baseURL = "https://lsygod.github.io/"
-title = "BookeenGao's Blog"
-enableRobotsTXT = true
-enableEmoji = true
-theme = "jane"
+# 基础设置
+#-------------------------------------------------------------------
+baseURL = "https://lsygod.github.io/"               # 博客部署网址
+title = "JOJO's Blog"                              # 网站名称
+enableRobotsTXT = true                         # 是否支持Robots协议
+enableEmoji = true                             # 是否支持Emoji表情符号
+theme = "jane"                                 # 选用jane主题
+hasCJKLanguage = true                          # 自动检测是否包含 中文\日文\韩文
+paginate = 10                                  # 首页每页显示的文章数目
+rssLimit = 20                                  # 限制 Rss 文章输出数量
+disqusShortname = ""                           # disqus_shortname
+googleAnalytics = ""                           # 配置google统计
+copyright = ""                                 # 默认为下面配置的author.name，
 
-# language support # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "zh-cn"           # Default language to use
-[languages.zh-cn]
+# 关于语言
+defaultContentLanguage = "zh-cn"               # 默认博客语言环境
+[languages.zh-cn]                              # 语言支持
   languageCode = "zh-cn"
 
-hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate = 15                                              # 首页每页显示的文章数
-rssLimit = 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
-disqusShortname = ""      # disqus_shortname
-googleAnalytics = ""      # UA-XXXXXXXX-X
-copyright = "BookeenGao"            # default: author.name ↓        # 默认为下面配置的author.name ↓
+# 关于语法高亮，具体使用可查看https://gohugo.io/content-management/syntax-highlighting/
+PygmentsCodeFences = true                      # Enable syntax highlighting with GitHub flavoured code fences
+PygmentsUseClasses = true                      # Use CSS classes to format highlighted code
+PygmentsCodefencesGuessSyntax = true           #
+PygmentsOptions = "linenos=table"              # 开启显示行号
 
-[author]                  # essential                     # 必需
+[author]                                       # 作者名称
   name = "BookeenGao"
 
-[sitemap]                 # essential                     # 必需
+[sitemap]                                      # 站点地图
   changefreq = "weekly"
   priority = 0.5
   filename = "sitemap.xml"
+#-------------------------------------------------------------------
 
-[[menu.main]]             # config your menu              # 配置目录
-  name = "首页"
+#菜单设置
+#-------------------------------------------------------------------
+[[menu.main]]
+  name = "主页"
   weight = 10
   identifier = "home"
-  pageref = "/"
+  url = "/"
 [[menu.main]]
   name = "归档"
   weight = 20
   identifier = "archives"
-  pageref = "/post/"
-[[menu.main]]
-  name = "标签"
-  weight = 30
-  identifier = "tags"
-  pageref = "/tags/"
+  url = "/post/"
 [[menu.main]]
   name = "分类"
-  weight = 40
+  weight = 30
   identifier = "categories"
-  pageref = "/categories/"
+  url = "/categories/"
+[[menu.main]]
+  name = "标签"
+  weight = 40
+  identifier = "tags"
+  url = "/tags/"
 [[menu.main]]
   name = "Github"
   weight = 70
-  pageref = "https://github.com/lsygod"
+  url = "https://github.com/lsygod"
+#-------------------------------------------------------------------
 
+#其他参数设置
+#-------------------------------------------------------------------
 [params]
-  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+  since = "2022"                                # 站点建立时间
+  homeFullContent = false                       # 主页是否显示全部文章内容
+  rssFullContent = true                         # if false, Rss feed instead of the summary
+  logoTitle = "JOJO"                         # 博客标题，默认值是上面设置的title，也就是网址名称
+  keywords = ["Hugo", "go", "后端"]  # 关键字
+  description = "后端搬砖记录"                              # 网页描述
+  archive-paginate = 30                         # 归档、标签、分类每页显示的文章数目
+  dateFormatToUse = "2006-01-02"                # 日期显示格式，查看可支持的格式见https://gohugo.io/functions/format/
+  moreMeta = true                               # 是否显示字数统计与阅读时间
+  showMenuLanguageChooser = true                # 显示语言选择开关
+  showAuthorInfo = true                         # 文章末尾显示作者信息
 
-  since = "2022"            # Site creation time          # 站点建立时间
-  homeFullContent = false   # if false, show post summaries on home page. Othewise show full content.
-  rssFullContent = true     # if false, Rss feed instead of the summary
+  # 一些全局开关，这些是默认值，也可以在每一篇内容的 front matter 中对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+  toc = true                                    # 是否开启目录
+  photoswipe = true                             # 是否启用PhotoSwipe（图片可点击）
+  bootcdn = true                                # 是否使用bootcdn
+  mathjax = false                               # 是否使用mathjax（数学公式）
+  contentCopyright = 'BookeenGao' # 版权声明
 
-  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = "JOJO"        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["Hugo", "blog", "Go", "后端"]
-  description = "JOJO博客"
-
-  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
-  archive-paginate = 50
-
-  # paginate style, default use numbered pagination links
-  # if true, use original "Previous" and "Next" links.
-  # paginateOriginalStyle = true
-
-  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
-  dateFormatToUse = "2006-01-02"
-
-  # show word count and read time ?                       # 是否显示字数统计与阅读时间
-  moreMeta = true
-
-  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
-  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
-  toc = true                                                                            # 是否开启目录
-  autoCollapseToc = false   # Auto expand and collapse toc                              # 目录自动展开/折叠
-  fancybox = true           # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
-  bootcdn = false           # In china. @Deprecated: use [params.publicCDN]             # 是否使用bootcdn(@Deprecated: 请使用[params.publicCDN])
-  mathjax = false           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
-  #contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
-
-  changyanAppid = ""        # Changyan app id             # 畅言
-  changyanAppkey = ""       # Changyan app key
-  baidu_push = false        # baidu push                  # 百度
-  baidu_analytics = ""      # Baidu Analytics
-  baidu_verification = ""   # Baidu Verification
-  google_verification = ""  # Google_Verification         # 谷歌
-
-  # Link custom CSS and JS assets
-  #   (relative to /static/css and /static/js respectively)
   customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
   customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
+#-------------------------------------------------------------------
 
-  [params.publicCDN]        # load these files from public cdn                          # 启用公共CDN，需自行定义
-    enable = false
+# CDN设置
+#-------------------------------------------------------------------
+  [params.publicCDN]        # load these files from public cdn
+    enable = true
     jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
     slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
-    fancyboxJs = '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
-    fancyboxCss = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
     gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
     gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
+    photoswipe = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>'
+    photoswipeUI = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>'
+    photoswipeCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">'
+    photoswipeSKIN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">'
+#-------------------------------------------------------------------
 
-  [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
-    owner = "lsygod"              # Your GitHub ID
-    repo = "comments"               # The repo to store comments
-    clientId = "9b2d4830539fdd0cfca9"           # Your client ID
-    clientSecret = ""       # Your client secret
+# 下面是关于评论系统，更新显示commit内容，谷歌搜索，文章打赏，访问数据统计等等
+#-------------------------------------------------------------------
+  [params.utteranc]         # utteranc is a comment system based on GitHub issues. see https://utteranc.es
+    enable = true
+    repo = "lsygod/comment"    # The repo to store comments
+    issueTerm = "pathname"
 
+  [params.livere]               #LiveRe comment. see https://www.livere.com/
+    uid = ""
 
-  [params.reward]                                         # 文章打赏
+  [params.counter.busuanzi]  # a Chinese visitor counter  # 卜算子计数器
     enable = false
-    wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
-    alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
+
+  [params.counter.leancloud]  # Chinese leancloud visitor counter  # leancloud 计数器
+    enable = false
+    appId = ""
+    appKey = ""
+
+  [params.commentCount.disqus] # show counts of comments for Disqus
+    enable = false
 
   [params.social]                                         # 社交链接
     a-email = ""
